@@ -1,0 +1,85 @@
+{
+  "localeSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ja_jp {🇯🇵 日本語} en_us {🇺🇸 English} other {Unknown}}"
+  },
+  "homePage": {
+    "newsLabel": "News"
+  },
+  "recruitmentPage": {
+    "summaryText": "Wonderwall has two locations, Kyoto and Tokyo, and now has full-time employees and members from 11 different countries working creatively. <br /> Including commissioned members, the number of countries is 13, making for an interesting office with conversations in a variety of languages going on around us every day. <br /> We are currently looking for a person for the next position. <br /> We are looking forward to your entry.",
+    "buttonText": "Apply",
+    "jobPageHeader": "Job Details",
+    "jobSummaryLabel": "Summary",
+    "jobResponsibilitiesLabel": "Responsibilities",
+    "jobDesiredSkillsLabel": "Desired Skills",
+    "jobNiceToHaveSkillsLabel": "Nice to Have Skills",
+    "jobWorkLocationLabel": "Work Location",
+    "jobWorkHoursLabel": "Work Hours",
+    "jobSalaryLabel": "Salary",
+    "jobInsuranceLabel": "Insurance",
+    "jobContactLabel": "Please use the contact form to submit your entry. ",
+    "jobContactLinkText": "Contact Form"
+  },
+  "urlPaths": {
+    "home": {
+      "path": "/",
+      "title": "WonderWall",
+      "label": "Home"
+    },
+    "aboutus": {
+      "path": "/aboutus",
+      "title": "About",
+      "pageTitle": "About",
+      "label": "About"
+    },
+    "ceo": {
+      "path": "",
+      "title": "About CEO",
+      "pageTitle": "About CEO",
+      "label": "About CEO"
+    },
+    "company": {
+      "path": "",
+      "title": "About WonderWall",
+      "pageTitle": "About WonderWall",
+      "label": "About WonderWall"
+    },
+    "commercial": {
+      "path": "",
+      "title": "Specified Commercial Transactions Law",
+      "pageTitle": "Specified Commercial Transactions Law",
+      "label": "Commercial"
+    },
+    "privacypolicy": {
+      "path": "",
+      "title": "Privacy Policy",
+      "pageTitle": "Privacy Policy",
+      "label": "Privacy Policy"
+    },
+    "services": {
+      "path": "",
+      "title": "Services",
+      "pageTitle": "Services",
+      "label": "Services"
+    },
+    "news": {
+      "path": "/news",
+      "title": "News",
+      "pageTitle": "News",
+      "label": "News"
+    },
+    "recruitment": {
+      "path": "/recruitment",
+      "title": "Jobs",
+      "pageTitle": "Jobs",
+      "label": "Jobs"
+    },
+    "contactus": {
+      "path": "",
+      "title": "Contact",
+      "pageTitle": "Contact",
+      "label": "Contact"
+    }
+  }
+}

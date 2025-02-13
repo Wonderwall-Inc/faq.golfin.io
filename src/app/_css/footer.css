@@ -1,0 +1,13 @@
+.footer {
+  background-color: rgb(237, 237, 237);
+}
+
+.footer-nav {
+  /* @apply padding-y-30 md:padding-y-10; */
+  @apply text-xs;
+
+  &-list {
+    @apply flex gap-2;
+    /* @apply md:gap-15; */
+  }
+}

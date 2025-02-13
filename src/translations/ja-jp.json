@@ -1,0 +1,86 @@
+{
+  "localeSwitcher": {
+    "label": "言語の変更",
+    "locale": "{locale, select, ja_jp {🇯🇵 日本語} en_us {🇺🇸 English} other {不明}}"
+  },
+  "homePage": {
+    "newsLabel": "ニュース"
+  },
+  "recruitmentPage": {
+    "summaryText": "ワンダーウォールは京都と東京の2拠点で、今では正社員で11カ国のメンバーがクリエイティブな活動を行っています。<br /> 委託メンバーを含めると13カ国にもなり、日々周囲では様々な言語での会話が飛び交う興味深いオフィスです。<br /> そんな私たちは現在、次のポジションの人材を探しています。<br /> あなたのエントリーをお待ちしています。",
+    "buttonText": "募集要項はこちら",
+    "jobPageHeader": "募集情報",
+    "jobSummaryLabel": "募集概要",
+    "jobResponsibilitiesLabel": "主な業務",
+    "jobDesiredSkillsLabel": "必須スキル・経験",
+    "jobNiceToHaveSkillsLabel": "歓迎スキル・経験",
+    "jobWorkLocationLabel": "勤務地",
+    "jobWorkHoursLabel": "就業時間",
+    "jobSalaryLabel": "給与",
+    "jobInsuranceLabel": "福利厚生",
+    "jobContactLabel": "エントリーはお問い合わせフォームよりご連絡ください。",
+    "jobContactLinkText": "お問い合わせフォーム"
+  },
+  "urlPaths": {
+    "home": {
+      "path": "/",
+      "title": "ワンダーウォール株式会社",
+      "label": "ホーム"
+    },
+    "aboutus": {
+      "path": "/aboutus",
+      "title": "ワンダーウォールについて",
+      "pageTitle": "会社概要",
+      "label": "ワンダーウォールについて"
+    },
+    "ceo": {
+      "path": "",
+      "title": "代表者略歴",
+      "pageTitle": "代表者略歴",
+      "label": "代表者について"
+    },
+    "company": {
+      "path": "",
+      "title": "会社概要",
+      "pageTitle": "会社概要",
+      "label": "会社概要"
+    },
+    "commercial": {
+      "path": "",
+      "title": "特定商取引法に基づく表示",
+      "pageTitle": "特定商取引法に基づく表示",
+      "label": "特定商取引法に基づく表示"
+    },
+    "privacypolicy": {
+      "path": "",
+      "title": "プライバシーポリシー",
+      "pageTitle": "プライバシーポリシー",
+      "label": "プライバシーポリシー"
+    },
+    "services": {
+      "path": "",
+      "title": "サービス",
+      "pageTitle": "サービス",
+      "label": "サービス"
+    },
+    "news": {
+      "path": "/news",
+      "title": "ニュース",
+      "pageTitle": "ニュース",
+      "label": "ニュース"
+    },
+    "recruitment": {
+      "path": "/recruitment",
+      "title": "採用",
+      "pageTitle": "採用",
+      "label": "採用",
+      "unity-engineer": "Unityエンジニア"
+    },
+    "contactus": {
+      "path": "",
+      "title": "お問い合わせ",
+      "pageTitle": "お問い合わせ",
+      "label": "お問い合わせ"
+    }
+  }
+}

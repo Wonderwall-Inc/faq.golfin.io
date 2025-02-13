@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "home.css";
+@import "menu.css";
+@import "footer.css";
+@import "_vars.css";
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: auto;
+    font-weight: auto;
+  }
+
+  .bg-grey-200 {
+    background-color: rgb(237 237 237);
+  }
+
+  .w-100p {
+    width: 100%;
+  }
+
+  .gap-30 {
+    gap: 30px
+  }
+
+  .w-960 {
+    width: 960px;
+  }
+
+  .w-720 {
+    width: 720px;
+  }
+
+  .h-100p {
+    height: 100%;
+  }
+
+  .border-green-250 {
+    border-color: rgb(185 221 193);
+  }
+
+  .bg-color-primary {
+    background-color: var(--ww-color-primary);
+  }
+
+  .text-color-primary {
+    color: var(--ww-color-primary);
+  }
+
+  .padding-y-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .padding-y-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .padding-10 {
+    padding: 10px;
+  }
+
+  .padding-y-15 {
+    padding: 15px 0;
+  }
+
+  .padding-x-15 {
+    padding: 0 15px;
+  }
+
+  .padding-15 {
+    padding: 15px;
+  }
+
+  .gap-15 {
+    gap: 15px;
+  }
+
+  .text-dark-grey {
+    color: #7d7d7d;
+  }
+
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    @media (min-width: 960px) {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    @media (min-width: 720px) {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    @media (min-width: 500px) {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    @apply font-notoSansJP font-thin;
+  }
+}
+
+html {
+  opacity: 0;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}
+
+.text-textColor {
+  color: rgb(67 67 67 / 1);
+}
+
+.w-60 {
+  width: 60px;
+}
+
+.h-40 {
+  height: 40px;
+}
+
+@layer base {
+  body {
+    background-color: rgb(237 237 237);
+    @apply text-textColor;
+  }
+}
+
+@layer components {
+  .breadcrumb {
+    padding: 30px 0;
+    @apply font-thin;
+
+    li {
+      &:not(:last-child) {
+        &::after {
+          padding: 0 4px;
+          content: '/';
+        }
+      }
+
+      &:last-child {
+        color: #bbb9b9;
+      }
+    }
+  }
+
+  .table-component {
+    @apply md:flex md:flex-col;
+    @apply md:gap-[1px];
+
+    dl {
+      @apply md:flex md:flex-row;
+    }
+
+    dt {
+      @apply bg-gray-200;
+      @apply md:w-[180px];
+      @apply px-10 py-2 md:px-10 md:py-2;
+    }
+
+    dd {
+      @apply md:flex-1;
+      @apply px-10 py-2 md:px-10 md:py-2;
+    }
+
+    &-child {
+      @apply flex flex-col;
+      @apply gap-[1px];
+      @apply w-100;
+
+      dl {
+        @apply flex flex-row;
+      }
+
+      dt {
+        @apply bg-transparent;
+        @apply w-[120px];
+      }
+    }
+  }
+
+}
+
+@layer utilities {
+  a {
+    @apply hover:opacity-50;
+  }
+}

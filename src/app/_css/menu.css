@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-white-100 {
+  background-color: white;
+}
+
+@layer components {
+
+  .menu-icon {
+    box-sizing: border-box;
+    height: 40px;
+    width: 60px;
+
+    span {
+      position: relative;
+      width: 50%;
+      border-radius: 5px;
+      height: 3px;
+
+      &::before {
+        @apply bg-white-100;
+        content: '';
+        display: block;
+        border-radius: 5px;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+      }
+
+      &::after {
+        @apply bg-white-100;
+        content: '';
+        display: block;
+        border-radius: 5px;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+      }
+
+      &::before {
+        top: -12px;
+      }
+
+      &::after {
+        top: 12px;
+      }
+    }
+
+    &.open {
+      span {
+        animation: navOpen .5s forwards;
+
+        &::before {
+          animation: navOpenBefore .5s forwards;
+        }
+
+        &::after {
+          animation: navOpenAfter .5s forwards;
+        }
+      }
+    }
+
+    &.close {
+      span {
+        animation: navClose .5s forwards;
+
+        &::before {
+          animation: navCloseBefore .5s forwards;
+        }
+
+        &::after {
+          animation: navCloseAfter .5s forwards;
+        }
+      }
+    }
+  }
+
+
+  @keyframes navOpen {
+    0% {
+      background: initial;
+    }
+
+    50% {
+      background: transparent;
+    }
+
+    100% {
+      background: transparent;
+    }
+  }
+
+  @keyframes navOpenBefore {
+    0% {
+      top: -7px;
+    }
+
+    50% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+  }
+
+  @keyframes navOpenAfter {
+    0% {
+      top: 7px;
+    }
+
+    50% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+  }
+
+  @keyframes navClose {
+    0% {
+      background: transparent;
+    }
+
+    50% {
+      background: transparent;
+    }
+
+    100% {
+      @apply bg-white-100;
+    }
+  }
+
+  @keyframes navCloseBefore {
+    0% {
+      top: 50%;
+      transform: rotate(45deg);
+    }
+
+    50% {
+      top: 50%;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      top: -7px;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes navCloseAfter {
+    0% {
+      top: 50%;
+      transform: rotate(-45deg);
+    }
+
+    50% {
+      top: 50%;
+      transform: rotate(0deg);
+    }
+
+    100% {
+      top: 7px;
+      transform: rotate(0deg);
+    }
+  }
+}
