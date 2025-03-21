@@ -1,8 +1,6 @@
 'use client'
 
 import { Page } from "@/payload-types";
-import { CMSLink } from "./Link";
-import { NodeRendererProps } from 'react-arborist';
 import Box from '@mui/material/Box';
 import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
 import { forwardRef } from "react";
