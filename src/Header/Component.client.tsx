@@ -1,6 +1,5 @@
 'use client'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
-import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -8,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 
 import { HeaderNav } from './Nav'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import LocaleSwitcher from './LocaleSwitcher/LocaleSwitcher'
 
 interface HeaderClientProps {
@@ -17,7 +16,6 @@ interface HeaderClientProps {
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
   const locale = useLocale()
-  const t = useTranslations('urlPaths')
   /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
@@ -46,30 +44,18 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
     });
   }
 
-  const path = usePathname();
-  const [_, pathWithoutLocale] = path.split(`/${locale}/`)
-
   let pageTitle = ''
-
-  if (path !== `/${locale}`) {
-    const [firstParam, secondParam] = pathWithoutLocale && pathWithoutLocale.split('/')
-    const jobPage = firstParam === 'recruitment' && secondParam
-    const newsPage = firstParam === 'news' && secondParam
-    const aboutPage = firstParam === 'aboutus' && secondParam
-    const localizedText = jobPage ? t(`${firstParam}.${secondParam}`) : newsPage ? t(`news.label`) : aboutPage ? t(`${secondParam}.label`) : t(`${pathWithoutLocale}.label`)
-    pageTitle = !localizedText.includes('urlPaths') ? localizedText : ''
-  }
 
   return (
     <>
       <header className="font-thin container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-primary text-white-100">
         <div className="m-auto flex items-center w-100p justify-between padding-10 lg:padding-y-15 lg:w-960">
           <div className="">
-            <Link
+            <a
               href="/"
             >
               <Image src="/wwg_logo_wide.svg" alt="WonderWall" width={194} height={40} priority={true} />
-            </Link>
+            </a>
           </div>
           <div className='flex items-center'>
             <div className='md:hidden'>

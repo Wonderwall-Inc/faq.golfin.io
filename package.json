@@ -20,6 +20,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.7",
+    "@mui/x-tree-view": "^7.26.0",
     "@payloadcms/db-postgres": "latest",
     "@payloadcms/email-nodemailer": "latest",
     "@payloadcms/live-preview-react": "latest",
@@ -52,7 +56,6 @@
     "payload": "3.14.0",
     "payload-admin-bar": "^1.0.6",
     "react": "19.0.0",
-    "react-arborist": "^3.4.2",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.54.2",
     "sharp": "^0.33.5",

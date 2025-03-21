@@ -9,6 +9,14 @@
 @import "footer.css";
 @import "_vars.css";
 
+.main-wrapper {
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
 @layer base {
 
   h1,
