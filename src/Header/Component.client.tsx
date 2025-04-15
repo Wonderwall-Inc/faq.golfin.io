@@ -9,6 +9,7 @@ import type { Header } from '@/payload-types'
 import { HeaderNav } from './Nav'
 import { useLocale } from 'next-intl'
 import LocaleSwitcher from './LocaleSwitcher/LocaleSwitcher'
+import Link from 'next/link'
 
 interface HeaderClientProps {
   header: Header
@@ -44,52 +45,24 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
     });
   }
 
-  let pageTitle = ''
-
   return (
     <>
-      <header className="font-thin container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-primary text-white-100">
-        <div className="m-auto flex items-center w-100p justify-between padding-10 lg:padding-y-15 lg:w-960">
+      <header className="font-thin container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-navigation text-white-100">
+        <div className="m-auto flex items-center w-100p justify-between padding-10 lg:padding-y-15">
           <div className="">
             <a
               href="/"
             >
-              <Image src="/wwg_logo_wide.svg" alt="WonderWall" width={194} height={40} priority={true} />
+              <Image src="/Golfin_main_logotype.svg" alt="Golfin Logo" width={194} height={40} priority={true} />
             </a>
           </div>
           <div className='flex items-center'>
-            <div className='md:hidden'>
-              <LocaleSwitcher />
-            </div>
-            <button
-              onClick={navToggleClick}
-              className={`menu-icon flex items-center justify-center rounded-sm hover:bg-green-250 md:hidden ${values.isNavOpen ? 'open' : values.isOpened ? 'close' : ''}`}
-            >
-              <span className='inline-block h-2 w-full bg-white-100'></span>
-            </button>
-            <ul className='hidden items-center justify-end gap-15 md:flex md:gap-30'>
+            <ul className='items-center justify-end gap-15 md:flex md:gap-30'>
               <HeaderNav header={header} isNavOpen={false} />
             </ul>
           </div>
         </div>
-        {values.isNavOpen
-          ?
-          <div className='block w-100p md:hidden'>
-            <ul className='text-left'>
-              <HeaderNav header={header} isNavOpen={values.isNavOpen} />
-            </ul>
-          </div>
-          : ''
-        }
       </header>
-      {pageTitle
-        ? <div className="w-100p text-white bg-color-primary">
-          <div className='lg:w-960 m-auto'>
-            <h2 className="py-[15px] text-2xl px-[15px] lg:py-[30px] lg:px-0 lg:text-4xl">{pageTitle}</h2>
-          </div>
-        </div>
-        : ''
-      }
     </>
   )
 }

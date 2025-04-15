@@ -12,12 +12,13 @@ import configPromise from '@payload-config'
 import '../_css/globals.css'
 import { draftMode } from 'next/headers'
 import { NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import { Navigation } from './navigation'
 import { getPayload } from 'payload'
 import { urlLocaleToLangCodeMap } from '@/constants/urlLocaleToLangCodeMap'
+import { createTreeNodes } from '@/utilities/createTreeNodes'
 
 export function generateStaticParams() {
   return ['ja-jp', 'en-us'].map(locale => ({ locale }))
@@ -32,66 +33,9 @@ export default async function RootLayout({ children, params }: { children: React
 
   const pages = await queryPages({ locale })
 
-  let withChildrenNodes: any[] = []
-  let withoutChildrenNodes: any[] = []
+  const { treeNodes } = createTreeNodes(pages)
 
-  // Loop through all pages and determine if a page has a parent node
-  // If it does, find the parent page and add the current page as a child to the parent page
-  const addChildPagesToParentPage = () => pages.forEach(pageX => {
-    if (pageX.parent !== null) {
-      pages.filter(pageY => {
-        if (pageY.title === (pageX.parent as any).title) {
-          // @ts-ignore
-          pageY.children = pageY.children ? [...pageY.children] : []
-          // @ts-ignore
-          pageY.children.push(pageX)
-        }
-      })
-    }
-  })
-
-  // Loop through the children property and modify some properties
-  // Convert id to string and add 'name' property to allow the Tree library to render the data
-  const updateTreeChildrenValues = (treeNode) => {
-    for (let childNode of treeNode) {
-      childNode.id = childNode.slug
-      childNode.label = childNode.title
-
-      if (childNode.children && Array.isArray(childNode.children) && childNode.children.length > 0) {
-        updateTreeChildrenValues(childNode.children)
-      }
-    }
-
-    return treeNode
-  };
-
-  // Create the tree/tree nodes for the sidebar
-  const createTrees = () => {
-    addChildPagesToParentPage()
-
-    pages.map(({ parent, id, title, slug, ...page }) => {
-      // @ts-ignore
-      const isRootPageWithChildren = parent === null && page.children?.length
-
-      if (isRootPageWithChildren) {
-        // @ts-ignore
-        page.children = updateTreeChildrenValues(page.children)
-        withChildrenNodes.push({
-          id: slug,
-          label: title,
-          // @ts-ignore
-          children: page.children
-        })
-      } else if (parent === null) {
-        withoutChildrenNodes.push({
-          id: slug,
-          label: title
-        })
-      }
-    })
-  }
-
-  createTrees()
+  const messages = await getMessages()
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -109,10 +53,10 @@ export default async function RootLayout({ children, params }: { children: React
           />
           <LivePreviewListener />
 
-          <NextIntlClientProvider messages={{}}>
+          <NextIntlClientProvider messages={messages}>
             <Header />
             <main className='bg-white-100 main-wrapper'>
-              <Navigation nodes={[...withoutChildrenNodes, ...withChildrenNodes]} />
+              <Navigation nodes={treeNodes} />
               {children}
             </main>
             <Footer />

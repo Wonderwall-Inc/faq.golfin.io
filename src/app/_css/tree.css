@@ -1,5 +1,21 @@
+.navigation-link {
+  font-size: 0.75rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
 .navigation-tree {
-  a {
-    padding: 5px 10px;
+  div {
+    font-size: 0.75rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+
+    a {
+      padding: 5px 10px;
+    }
   }
 }

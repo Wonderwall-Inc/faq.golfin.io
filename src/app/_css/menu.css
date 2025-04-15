@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-white-100 {
-  background-color: white;
+.bg-black-100 {
+  background-color: #575757;
 }
 
 @layer components {
 
   .menu-icon {
     box-sizing: border-box;
-    height: 40px;
-    width: 60px;
+    height: 50px;
+    width: 45px;
 
     span {
       position: relative;
@@ -20,7 +20,7 @@
       height: 3px;
 
       &::before {
-        @apply bg-white-100;
+        @apply bg-black-100;
         content: '';
         display: block;
         border-radius: 5px;
@@ -30,7 +30,7 @@
       }
 
       &::after {
-        @apply bg-white-100;
+        @apply bg-black-100;
         content: '';
         display: block;
         border-radius: 5px;
@@ -134,7 +134,7 @@
     }
 
     100% {
-      @apply bg-white-100;
+      @apply bg-black-100;
     }
   }
 

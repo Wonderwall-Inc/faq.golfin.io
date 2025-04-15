@@ -1,9 +1,19 @@
 .page-container {
    display: flex;
-   padding: 30px;
+   padding: 40px;
+   font-size: 0.8rem;
 
    @media (max-width: 768px) {
+      padding: 75px;
       flex-direction: column;
+
+      div {
+
+
+         p {
+            font-size: 0.8rem;
+         }
+      }
    }
 }
 
@@ -22,6 +32,8 @@
 
    @media (max-width: 768px) {
       width: 100%;
+      position: fixed;
+      z-index: 900;
    }
 
    .mobile-menu-toggle {

@@ -9,7 +9,6 @@ import { TreeItem2, TreeItem2Props } from "@mui/x-tree-view/TreeItem2";
 import Link from "next/link";
 import clsx from "clsx";
 
-
 export type TreePage = Page & { name: string }
 
 interface TreeNode {
@@ -24,11 +23,15 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
   ref: React.Ref<HTMLLIElement>,
 ) {
   const renderLabel = () => {
-    if (props.children) {
-      return props.label
-    }
 
-    return <Link href={props.itemId}>{props.label}</Link>
+    if (props.label && typeof props.label === 'string') {
+      const removeBracketedContentRegex = /\[[^\]]+\]\s*/g;
+      props.label = props.label.replace(removeBracketedContentRegex, '')
+
+      if (props.children) return props.label
+
+      return <Link className="navigation-link" href={props.itemId}>{props.label}</Link>
+    }
   }
 
   return (

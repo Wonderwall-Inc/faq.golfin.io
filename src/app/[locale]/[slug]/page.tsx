@@ -45,7 +45,7 @@ export default async function Page({ params }) {
   if (!page) return null
 
   return (
-    <article className="w-100p lg:w-960 lg:m-auto">
+    <article className="w-100p lg:m-auto">
       {/* <BreadCrumb breadcrumbs={page.breadcrumbs} path='/recruitment' /> */}
       <section className="pb-12 text-center" >
         <div className="py-15 text-left md:py-30 lg:py-0">

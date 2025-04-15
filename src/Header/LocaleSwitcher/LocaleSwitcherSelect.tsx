@@ -55,7 +55,7 @@ export default function LocaleSwitcherSelect({
       >
         {children}
       </select>
-      <span className="top-[-3px] pointer-events-none absolute right-2 md:top-[8px] cursor-pointer">⌄</span>
+      <span className="pointer-events-none absolute right-2 top-[8px] cursor-pointer">⌄</span>
     </label>
   );
 }

@@ -3,7 +3,7 @@
 import { TreeComponent } from "@/components/Tree"
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useState, useEffect } from 'react';
 
 const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
   const pathname = usePathname()
@@ -14,7 +14,14 @@ const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
 
   return (
     <>
-      <div className="mobile-menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>X</div>
+      <div>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`menu-icon flex items-center justify-center rounded-sm hover:bg-green-250 md:hidden ${isMobileMenuOpen ? 'open' : 'close'}`}
+        >
+          <span className='inline-block h-2 w-full bg-black-100'></span>
+        </button>
+      </div>
       <div className={clsx('mobile-menu-container', isMobileMenuOpen ? 'mobile-menu-open' : 'mobile-menu-closed')}>
         <nav className="mobile-menu">
           <div className="mobile-menu-content-container">
