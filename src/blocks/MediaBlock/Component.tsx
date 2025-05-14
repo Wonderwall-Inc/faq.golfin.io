@@ -41,6 +41,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
         },
         className,
       )}
+      style={{ display: 'flex', justifyContent: 'center' }}
     >
       {(media || staticImage) && (
         <Media

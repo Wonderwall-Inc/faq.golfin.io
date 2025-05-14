@@ -44,6 +44,13 @@ const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
 
 export const Navigation = ({ nodes }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  if (pathname.includes('terms-of-use')) {
+    return null
+  }
+
+  if (pathname.includes('privacy-policy' || pathname.includes('terms-of-use'))) return null
 
   return (
     <>

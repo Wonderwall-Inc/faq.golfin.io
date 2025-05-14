@@ -45,14 +45,17 @@ export const createTreeNodes = (pages: Page[]) => {
 
   const nodes: any[] = [];
   pages.forEach(({ parent, title, slug, ...page }) => {
-    if (parent === null) {
-      const treeNode = {
-        id: slug, // Use unique slug
-        label: title,
-        // @ts-ignore
-        ...(page.children?.length >= 1 && { children: updateTreeChildrenValues(page.children) }),
-      };
-      nodes.push(treeNode);
+    if (slug !== 'privacy-policy' && slug !== 'terms-of-use') {
+
+      if (parent === null) {
+        const treeNode = {
+          id: slug, // Use unique slug
+          label: title,
+          // @ts-ignore
+          ...(page.children?.length >= 1 && { children: updateTreeChildrenValues(page.children) }),
+        };
+        nodes.push(treeNode);
+      }
     }
   });
 

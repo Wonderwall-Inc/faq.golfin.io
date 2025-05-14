@@ -103,7 +103,8 @@
     color: #7d7d7d;
   }
 
-  .container {
+  .container,
+  .nav-container {
     margin: 0 !important;
     padding: 0 2rem !important;
 
@@ -125,8 +126,25 @@
       max-width: 100% !important;
       margin: 0 !important;
     }
+
   }
 
+  .container {
+    a {
+      color: blue;
+    }
+  }
+
+}
+
+.next-responsive-image {
+  max-width: 60vw;
+  max-height: 40vw;
+
+  @media (max-width: 720px) {
+    max-width: 80vw;
+    max-height: 60vw;
+  }
 }
 
 @layer base {

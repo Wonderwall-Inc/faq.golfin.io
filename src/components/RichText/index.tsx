@@ -52,6 +52,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
   },
 })
 
+
 type Props = {
   data: SerializedEditorState
   enableGutter?: boolean
@@ -60,6 +61,7 @@ type Props = {
 
 export default function RichText(props: Props) {
   const { className, enableProse = true, enableGutter = true, ...rest } = props
+
   return (
     <RichTextWithoutBlocks
       converters={jsxConverters}

@@ -54,7 +54,6 @@ export async function Footer() {
     locale: urlLocaleToLangCodeMap.get(await getLocale())
   })
 
-
   const navItems = footer?.navItems || []
 
   const thisYear = (new Date()).getFullYear();
@@ -68,7 +67,7 @@ export async function Footer() {
               return <CMSLink className="text-dark-grey" key={i} {...link} />
             })}
           </nav>
-          <p>Copyright ©︎ {thisYear} Wonder Wall Co.,Ltd. All Rights Reserved.</p>
+          <p>golfin ©︎ {thisYear}. All rights reserved.</p>
         </div>
       </div>
     </footer>

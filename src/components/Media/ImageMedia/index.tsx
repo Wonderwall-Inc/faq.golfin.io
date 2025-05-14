@@ -14,7 +14,12 @@ import { Media } from '@/payload-types'
 
 const { breakpoints } = cssVariables
 
-export const ImageMedia: React.FC<MediaProps> = (props) => {
+interface ImageMediaProps extends MediaProps {
+  maxWidth?: string
+  maxHeight?: string
+}
+
+export const ImageMedia: React.FC<ImageMediaProps> = (props) => {
   const {
     alt: altFromProps,
     fill,
@@ -26,7 +31,9 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     size: sizeFromProps,
     src: srcFromProps,
     placeholder,
-    blurDataSrc
+    blurDataSrc,
+    maxHeight,
+    maxWidth
   } = props
 
   // const [isLoading, setIsLoading] = React.useState(true)
@@ -65,7 +72,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   return (
     <NextImage
       alt={alt || ''}
-      className={cn(imgClassName)}
+      className={`${cn(imgClassName)}, next-responsive-image`}
       onClick={onClick}
       onLoad={() => {
         // setIsLoading(false)
@@ -83,7 +90,9 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
       height={0}
       style={{
         width: fill ? '100%' : width,
-        height: fill ? 'auto' : width
+        height: fill ? 'auto' : height,
+        maxWidth: props.maxWidth,
+        maxHeight: props.maxHeight
       }}
     />
   )

@@ -47,7 +47,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
 
   return (
     <>
-      <header className="font-thin container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-navigation text-white-100">
+      <header className="font-thin nav-container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-navigation text-white-100">
         <div className="m-auto flex items-center w-100p justify-between padding-10 lg:padding-y-15">
           <div className="">
             <a

@@ -31,6 +31,8 @@ export default async function RootLayout({ children, params }: { children: React
 
   if (!routing.locales.includes(locale as any)) notFound();
 
+  console.log(routing)
+
   const pages = await queryPages({ locale })
 
   const { treeNodes } = createTreeNodes(pages)
