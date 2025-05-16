@@ -17,13 +17,13 @@ export default async function Page({ params }) {
   const locale = (await params).locale
   setRequestLocale((await params).locale);
 
-  const page = await queryPageBySlug({
-    locale
-  })
+  // const page = await queryPageBySlug({
+  //   locale
+  // })
 
-  console.log({ page })
+  // console.log({ page })
 
-  if (!page) return null
+  // if (!page) return null
 
   return (
     <article className="w-100p lg:m-auto">
@@ -31,7 +31,7 @@ export default async function Page({ params }) {
       <section className="pb-12 text-center" >
         <div className="py-15 text-left md:py-30 lg:py-0">
           <div className="position">
-            <RenderBlocks blocks={page.layout as any} />
+            {/* <RenderBlocks blocks={page.layout as any} /> */}
           </div>
         </div>
       </section>
@@ -60,11 +60,6 @@ const queryPageBySlug = cache(async (params) => {
     limit: 999,
     overrideAccess: true,
     locale: urlLocaleToLangCodeMap.get(locale),
-    where: {
-      slug: {
-        equals: 'home'
-      }
-    },
   })
 
   return result.docs?.[0] || null

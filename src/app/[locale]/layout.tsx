@@ -56,7 +56,7 @@ export default async function RootLayout({ children, params }: { children: React
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className='bg-white-100 main-wrapper'>
-              {/* <Navigation nodes={treeNodes} /> */}
+              <Navigation nodes={treeNodes} />
               {children}
             </main>
             <Footer />

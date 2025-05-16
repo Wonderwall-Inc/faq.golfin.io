@@ -9,7 +9,7 @@ const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    setIsMobileMenuOpen(true)
+    setIsMobileMenuOpen(pathname === '/ja-jp' || pathname === '/en-us' ? true : false)
   }, [pathname, setIsMobileMenuOpen])
 
   return (

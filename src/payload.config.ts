@@ -16,7 +16,7 @@ import {
 import sharp from 'sharp' // editor-import
 import { UnderlineFeature } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import { buildConfig, TaskConfig } from 'payload'
+import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -28,6 +28,8 @@ import { revalidateRedirects } from './hooks/revalidateRedirects'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
+import { FAQ } from './FAQ/config'
+import { Categories } from './collections/Categories'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -117,10 +119,10 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     }
   }),
-  collections: [Pages, Posts, Media, Users],
+  collections: [Pages, Posts, Media, Users, Categories],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, FAQ],
   localization: {
     locales: ['en', 'ja'],
     defaultLocale: 'en',
