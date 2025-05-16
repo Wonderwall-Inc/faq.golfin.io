@@ -9,7 +9,7 @@ const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    setIsMobileMenuOpen(false)
+    setIsMobileMenuOpen(true)
   }, [pathname, setIsMobileMenuOpen])
 
   return (
@@ -44,9 +44,6 @@ const MobileMenu = ({ setIsMobileMenuOpen, isMobileMenuOpen, nodes }) => {
 
 export const Navigation = ({ nodes }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
-
-  if (pathname.includes('privacy-policy') || pathname.includes('terms-of-use')) return null
 
   return (
     <>

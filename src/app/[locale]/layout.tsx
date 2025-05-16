@@ -31,8 +31,6 @@ export default async function RootLayout({ children, params }: { children: React
 
   if (!routing.locales.includes(locale as any)) notFound();
 
-  console.log(routing)
-
   const pages = await queryPages({ locale })
 
   const { treeNodes } = createTreeNodes(pages)
@@ -58,7 +56,7 @@ export default async function RootLayout({ children, params }: { children: React
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className='bg-white-100 main-wrapper'>
-              <Navigation nodes={treeNodes} />
+              {/* <Navigation nodes={treeNodes} /> */}
               {children}
             </main>
             <Footer />

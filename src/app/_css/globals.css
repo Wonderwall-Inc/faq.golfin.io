@@ -30,11 +30,34 @@
   }
 
   .bg-grey-200 {
-    background-color: rgb(237 237 237);
+    background-color: rgb(246, 246, 246);
   }
 
   .w-100p {
-    width: 100%;
+    margin: 0 auto;
+    width: 60%;
+
+    h1,
+    h2 {
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong {
+      color: black;
+    }
+
+    li,
+    p {
+      color: grey;
+    }
   }
 
   .gap-30 {

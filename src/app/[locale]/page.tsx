@@ -21,6 +21,8 @@ export default async function Page({ params }) {
     locale
   })
 
+  console.log({ page })
+
   if (!page) return null
 
   return (
@@ -58,13 +60,12 @@ const queryPageBySlug = cache(async (params) => {
     limit: 999,
     overrideAccess: true,
     locale: urlLocaleToLangCodeMap.get(locale),
+    where: {
+      slug: {
+        equals: 'home'
+      }
+    },
   })
-
-  const childrenOfFirstPage = result.docs.filter(doc => (doc.parent as any)?.title === result.docs?.[0].title)
-
-  if (childrenOfFirstPage) {
-    return childrenOfFirstPage[0] || null
-  }
 
   return result.docs?.[0] || null
 })
