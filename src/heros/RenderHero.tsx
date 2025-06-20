@@ -13,6 +13,7 @@ const heroes = {
   mediumImpact: MediumImpactHero,
 }
 
+//@ts-ignore
 export const RenderHero: React.FC<Page['hero'] & { blurDataSrc?: string, placeholder?: PlaceholderValue }> = (props) => {
   const { type } = props || {}
 

@@ -130,7 +130,7 @@ export default buildConfig({
   },
   plugins: [
     nestedDocsPlugin({
-      collections: ['pages'],
+      collections: ['pages', 'categories'],
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ''),
     }),

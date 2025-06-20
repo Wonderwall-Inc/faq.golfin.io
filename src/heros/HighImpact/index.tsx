@@ -9,6 +9,7 @@ import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 
+// @ts-ignore
 export const HighImpactHero: React.FC<Page['hero'] & { blurDataSrc?: string, placeholder?: PlaceholderValue }> = ({ blurDataSrc, links, media, placeholder, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
 

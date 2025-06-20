@@ -23,7 +23,6 @@ export const Pagination: React.FC<{
 }> = (props) => {
   const router = useRouter()
 
-
   const { className, page, totalPages, locale } = props
   const hasNextPage = page < totalPages
   const hasPrevPage = page > 1
@@ -33,7 +32,6 @@ export const Pagination: React.FC<{
 
   const isFirstPage = page === 1
   const isLastPage = page === totalPages
-
 
   return (
     <div className={cn('py-[20px]', className)}>

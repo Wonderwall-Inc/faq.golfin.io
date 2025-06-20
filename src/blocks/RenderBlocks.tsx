@@ -1,4 +1,3 @@
-import { cn } from '@/utilities/cn'
 import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
@@ -18,8 +17,10 @@ const blockComponents = {
 export const RenderBlocks: React.FC<{
   // @ts-ignore
   blocks: Page['layout'][0][]
+  // remove when the faq content on the home page is updated with the new design
+  isFaqTestPage: boolean
 }> = (props) => {
-  const { blocks } = props
+  const { blocks, isFaqTestPage = false } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
@@ -33,8 +34,9 @@ export const RenderBlocks: React.FC<{
             const Block = blockComponents[blockType]
 
             if (Block) {
+              block.isFaqTestPage = props.isFaqTestPage
               return (
-                <div className="my-16" key={index}>
+                <div className={`${!isFaqTestPage && `my-16`}`} key={index}>
                   <Block {...block} disableInnerContainer />
                 </div>
               )

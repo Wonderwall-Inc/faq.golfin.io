@@ -9,8 +9,10 @@ type LowImpactHeroType =
     children?: React.ReactNode
     richText?: never
   }
+  //@ts-ignore
   | (Omit<Page['hero'], 'richText'> & {
     children?: never
+    //@ts-ignore
     richText?: Page['hero']['richText']
   })
 

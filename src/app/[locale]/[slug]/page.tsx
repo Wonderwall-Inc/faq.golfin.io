@@ -50,7 +50,7 @@ export default async function Page({ params }) {
       <section className="pb-12 text-center" >
         <div className="py-15 text-left md:py-30 lg:py-0">
           <div className="position">
-            <RenderBlocks blocks={page.layout as any} />
+            <RenderBlocks isFaqTestPage={false} blocks={page.layout as any} />
           </div>
         </div>
       </section>

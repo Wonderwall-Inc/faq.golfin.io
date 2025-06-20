@@ -1,6 +1,4 @@
 import type { GlobalConfig } from 'payload'
-
-import { link } from '@/fields/link'
 import { Content } from '@/blocks/Content/config'
 
 export const FAQ: GlobalConfig = {
@@ -13,6 +11,15 @@ export const FAQ: GlobalConfig = {
       name: 'golfinGame',
       type: 'array',
       fields: [
+        {
+          name: 'categories',
+          type: 'relationship',
+          admin: {
+            position: 'sidebar',
+          },
+          hasMany: true,
+          relationTo: 'categories',
+        },
         {
           name: 'title',
           type: 'text',

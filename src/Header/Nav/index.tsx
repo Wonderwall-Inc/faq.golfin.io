@@ -34,7 +34,7 @@ export const HeaderNav: React.FC<Props> = ({ header, isNavOpen }) => {
       {navItems.map(({ link }, i) => {
         return (
           <li key={i}>
-            <CMSLink {...link} className='font-thin text-white' appearance='link' />
+            {/* <CMSLink {...link} className='font-thin text-white' appearance='link' /> */}
           </li>
         )
       })}

@@ -85,11 +85,16 @@ export const Pages: CollectionConfig = {
       type: 'tabs',
       tabs: [
         {
-          fields: [hero],
-          label: 'Hero',
-        },
-        {
           fields: [
+            {
+              name: 'categories',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'categories',
+            },
             {
               name: 'layout',
               type: 'blocks',
