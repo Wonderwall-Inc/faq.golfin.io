@@ -1,7 +1,7 @@
 {
   "localeSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, ja_jp {🇯🇵 日本語} en_us {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, ja_jp {日本語} en_us {EN} other {Unknown}}"
   },
   "homePage": {
     "newsLabel": "News"

@@ -1,3 +1,7 @@
+.faq-category-wrapper {
+  font-family: "Roboto Sans", sans-serif;
+}
+
 .category-item-heading {
   font-weight: 600;
   margin-bottom: 5px;
@@ -18,6 +22,7 @@
 
 .faq-test-container {
   p {
+    color: #111111;
     margin: 5px 0;
   }
 

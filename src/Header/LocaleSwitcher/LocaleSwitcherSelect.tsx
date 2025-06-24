@@ -36,6 +36,8 @@ export default function LocaleSwitcherSelect({
     });
   }
 
+  console.log({ locale })
+
   return (
     <label
       className={clsx(
@@ -47,7 +49,8 @@ export default function LocaleSwitcherSelect({
       <p className="sr-only">{label}</p>
       <select
         className={clsx(
-          "inline-flex appearance-none bg-transparent py-3 pl-2 cursor-pointer pr-6",
+          "inline-flex appearance-none bg-transparent py-3 pl-2 cursor-pointer",
+          locale === 'ja-jp' && 'pr-6'
         )}
         defaultValue={defaultValue}
         disabled={isPending}

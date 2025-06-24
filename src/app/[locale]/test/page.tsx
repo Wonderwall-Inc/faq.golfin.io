@@ -27,15 +27,15 @@ export default async function Page({ params }) {
       if ((category.parent as Category)?.slug === 'golfin-game') {
         const categoryContentList = ((faq.golfinGame as Array<GolfinGameFaq>).filter(faqs => faqs.categories!!.filter(faqCategory => (faqCategory as Category).title === category.title)))
         return (
-          <>
-            <h2 className="category-item-heading">{`${(category.parent as Category)?.slug} ${categoryIndex}. ${category.title}`}</h2>
+          <div key={categoryIndex} className="faq-category-wrapper">
+            <h2 className="category-item-heading">{`${categoryIndex}. ${category.title}`}</h2>
             <ul className="category-content-list-wrapper">
               {categoryContentList.map((categoryContent) => (
                 <FAQListItem faq={categoryContent} key={categoryContent.id} />
               ))}
             </ul>
             <p></p>
-          </>
+          </div>
         )
       }
 
@@ -65,7 +65,8 @@ const queryPageBySlug = cache(async (params) => {
 
   const categories = await payload.find({
     collection: "categories",
-    limit: 999
+    limit: 999,
+    locale: urlLocaleToLangCodeMap.get(locale),
   })
 
   const faqs = await payload.findGlobal({

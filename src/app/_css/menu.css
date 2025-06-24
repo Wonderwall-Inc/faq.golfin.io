@@ -10,8 +10,9 @@
 
   .menu-icon {
     box-sizing: border-box;
-    height: 50px;
-    width: 45px;
+    height: 52px;
+    width: 52px;
+    margin-left: 4px;
 
     span {
       position: relative;

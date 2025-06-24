@@ -4,13 +4,11 @@ import type { StaticImageData } from 'next/image'
 
 import { cn } from 'src/utilities/cn'
 import NextImage from 'next/image'
-import React, { useEffect } from 'react'
-import sharp from "sharp"
+import React from 'react'
 
 import type { Props as MediaProps } from '../types'
 
 import cssVariables from '@/cssVariables'
-import { Media } from '@/payload-types'
 
 const { breakpoints } = cssVariables
 
@@ -60,7 +58,6 @@ export const ImageMedia: React.FC<ImageMediaProps> = (props) => {
     // setblurDataSrc(resource.url!!)
     src = process.env.NODE_ENV === 'development' ? `${process.env.NEXT_PUBLIC_SERVER_URL}${url}` : `${url}`
   }
-
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
   const sizes = sizeFromProps

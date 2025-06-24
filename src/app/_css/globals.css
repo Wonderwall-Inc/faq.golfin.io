@@ -37,11 +37,18 @@
     margin: 0 auto;
     width: 70%;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 16px;
+    }
+
     h1,
     h2 {
       @media (max-width: 768px) {
         font-size: 20px;
       }
+
+      color: #111111;
     }
 
     h1,
