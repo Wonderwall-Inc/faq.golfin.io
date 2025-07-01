@@ -12,6 +12,15 @@ import { FAQListItem, GolfinGameFaq } from '@/components/FAQ/FAQListItem'
 export const dynamic = 'force-static'
 export const revalidate = 60
 
+interface FaqContentItem {
+  heading: string
+  faqItems: GolfinGameFaq[]
+}
+
+interface FaqContent {
+  items: FaqContentItem[]
+}
+
 export default async function Page({ params }) {
   const locale = (await params).locale
   setRequestLocale((await params).locale);
@@ -23,24 +32,37 @@ export default async function Page({ params }) {
   if (!faqs || !categories) return null
 
   const generateCategories = (categories: Category[], faq: FAQ) => {
-    return categories.map((category, categoryIndex) => {
-      if ((category.parent as Category)?.slug === 'golfin-game') {
-        const categoryContentList = ((faq.golfinGame as Array<GolfinGameFaq>).filter(faqs => faqs.categories!!.filter(faqCategory => (faqCategory as Category).title === category.title)))
-        return (
-          <div key={categoryIndex} className="faq-category-wrapper">
-            <h2 className="category-item-heading">{`${categoryIndex}. ${category.title}`}</h2>
-            <ul className="category-content-list-wrapper">
-              {categoryContentList.map((categoryContent) => (
-                <FAQListItem faq={categoryContent} key={categoryContent.id} />
-              ))}
-            </ul>
-            <p></p>
-          </div>
-        )
-      }
+    let faqContent: FaqContent = {
+      items: []
+    }
 
-      return <></>
-    })
+    if (faq.golfinGame) {
+      faq.golfinGame.forEach(faq => {
+        const currentCategory = categories.filter(category => (category as Category).id === (faq.categories!![0] as Category).id)
+        const faqContentCategory = faqContent.items?.filter(item => item?.heading === currentCategory[0].title)
+
+        if (faqContentCategory.length >= 1) {
+          faqContentCategory[0]?.faqItems.push(faq)
+        } else {
+          const newItem: FaqContentItem = {
+            heading: currentCategory[0].title,
+            faqItems: [faq]
+          }
+          faqContent.items.push(newItem)
+        }
+      })
+    }
+
+    return faqContent.items.map((item, categoryIndex) =>
+      <div key={categoryIndex} className="faq-category-wrapper">
+        <h2 className="category-item-heading">{`${categoryIndex + 1}. ${item.heading}`}</h2>
+        <ul className="category-content-list-wrapper">
+          {item.faqItems.map((faqItem, index) => <FAQListItem faq={faqItem} key={index} />
+          )}
+        </ul>
+        <p></p>
+      </div>
+    )
   }
 
   return (

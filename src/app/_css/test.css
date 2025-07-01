@@ -21,9 +21,12 @@
 }
 
 .faq-test-container {
-  p {
+
+  p,
+  li {
     color: #111111;
     margin: 5px 0;
+    font-weight: 400;
   }
 
   p:last-of-type {

@@ -8,6 +8,12 @@ export const FAQ: GlobalConfig = {
   },
   fields: [
     {
+      admin: {
+        initCollapsed: true,
+        components: {
+          RowLabel: '@/FAQ/RowLabel#RowLabel',
+        },
+      },
       name: 'golfinGame',
       type: 'array',
       fields: [
@@ -44,7 +50,6 @@ export const FAQ: GlobalConfig = {
         },
       ],
       localized: true,
-      maxRows: 6,
     },
   ],
 }

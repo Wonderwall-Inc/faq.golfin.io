@@ -36,8 +36,6 @@ export default function LocaleSwitcherSelect({
     });
   }
 
-  console.log({ locale })
-
   return (
     <label
       className={clsx(
