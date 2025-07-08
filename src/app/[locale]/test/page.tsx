@@ -70,6 +70,7 @@ export default async function Page({ params }) {
       {/* <BreadCrumb breadcrumbs={page.breadcrumbs} path='/recruitment' /> */}
       <section className="pt-12 pb-12 text-center" >
         <div className="py-15 text-left md:py-30 lg:py-0">
+          <h1 className="golfin-game-faq-heading">GOLFIN GAME - FAQ</h1>
           <div className="position">
             {generateCategories(categories, faqs)}
           </div>
