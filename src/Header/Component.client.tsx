@@ -50,11 +50,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
       <header className="font-thin nav-container sticky top-0 z-50 flex items-center lg:items-start flex-col justify-start bg-color-navigation text-white-100">
         <div className="m-auto flex items-center w-100p justify-between padding-10 lg:padding-y-15">
           <div className="">
-            <a
-              href="/"
-            >
-              <Image src="/Golfin_main_logotype.svg" alt="Golfin Logo" width={194} height={40} priority={true} />
-            </a>
+            <Image src="/Golfin_main_logotype.svg" alt="Golfin Logo" width={194} height={40} priority={true} />
           </div>
           <div className='flex items-center'>
             <ul className='items-center justify-end gap-15 md:flex md:gap-30'>
