@@ -11,6 +11,7 @@ import { urlLocaleToLangCodeMap } from '@/constants/urlLocaleToLangCodeMap'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 
 import '../../_css/slug.css'
+import { FaqPage } from './FaqPage'
 
 export const dynamic = 'force-static'
 export const revalidate = 60
@@ -32,10 +33,41 @@ export async function generateStaticParams() {
   return posts.docs?.map(({ slug }) => ({ slug }))
 }
 
+const fetchFaqPageData = cache(async (params) => {
+  const { locale } = (await params)
+  const { isEnabled: draft } = await draftMode()
+
+  const payload = await getPayload({ config: configPromise })
+
+  const categories = await payload.find({
+    collection: "categories",
+    limit: 999,
+    locale: urlLocaleToLangCodeMap.get(locale),
+  })
+
+  const faqs = await payload.findGlobal({
+    slug: 'FAQ',
+    draft,
+    overrideAccess: true,
+    locale: urlLocaleToLangCodeMap.get(locale),
+  })
+
+  return {
+    categories: categories?.docs || null,
+    faqs: faqs || null
+  }
+})
+
 export default async function Page({ params }) {
   const locale = (await params).locale
   setRequestLocale((await params).locale);
   const { slug } = (await params)
+
+  if (slug === 'faq') {
+    const { categories, faqs } = await fetchFaqPageData(params)
+    if (!categories || !faqs) return null
+    return <FaqPage categories={categories} faqs={faqs} />
+  }
 
   const page = await queryPageBySlug({
     locale,
