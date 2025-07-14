@@ -1,4 +1,5 @@
 'use client'
+
 import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -8,8 +9,6 @@ import type { Header } from '@/payload-types'
 
 import { HeaderNav } from './Nav'
 import { useLocale } from 'next-intl'
-import LocaleSwitcher from './LocaleSwitcher/LocaleSwitcher'
-import Link from 'next/link'
 
 interface HeaderClientProps {
   header: Header

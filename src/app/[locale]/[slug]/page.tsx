@@ -63,7 +63,7 @@ export default async function Page({ params }) {
   setRequestLocale((await params).locale);
   const { slug } = (await params)
 
-  if (slug === 'faq') {
+  if (slug === 'faq' || 'game') {
     const { categories, faqs } = await fetchFaqPageData(params)
     if (!categories || !faqs) return null
     return <FaqPage categories={categories} faqs={faqs} />
